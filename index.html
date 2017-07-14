@@ -188,13 +188,12 @@
 
             function updateAnimation() {
                 var pos = getPos();
-                console.log(pos);
 
                 if (wrapper.className === 'opened') {
                     (pos < 370 || pos > 430) && (wrapper.className !== 'closed') && (wrapper.className = 'closed');
                 }
 
-                this.timeline.seek(pos);
+                timeline.seek(pos);
             }
 
             function onClick() {
