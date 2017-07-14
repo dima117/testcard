@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Title</title>
-        <script src="node_modules/animejs/anime.min.js"></script>
+        <script src="anime.min.js"></script>
         <style>
             body {
                 width: 400px;
@@ -45,6 +45,62 @@
                 position: fixed!important;
                 top: 0!important;
             }
+
+            #card {
+                width: 200px;
+                height: 200px;
+                background-color: #126262;
+                color: white;
+                font-size: 9px;
+                font-weight: 100!important;
+                font-family: sans-serif;
+
+                opacity: 0;
+            }
+
+            #card h1, #card p {
+                font-weight: 100!important;
+                font-family: sans-serif;
+            }
+
+            .opened {
+                position: relative;
+                height: 400px;
+            }
+
+            .opened #banner {
+                /*position: relative!important;*/
+                /*height: 400px;*/
+                overflow: hidden;
+            }
+
+            .opened #card {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform-origin: left top;
+                animation: card 1s ease-in-out 1 forwards;
+            }
+
+            .closed #card {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform-origin: left top;
+                animation: close 0.2s ease-in-out 1 forwards;
+            }
+
+            @keyframes card {
+              from { opacity: 0; transform: scale(1); }
+              20% { opacity: 1; transform: scale(1); }   
+              40% { transform: scale(1.8); }
+              to { opacity: 1; transform: scale(1.8); }
+            }
+
+            @keyframes close {
+              from { opacity: 1; transform: scale(1.8); }
+              to { opacity: 0; transform: scale(1); }
+            }
         </style>
     </head>
     <body>
@@ -56,7 +112,16 @@
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
         <div id="wrapper" class="wrapper">
-            <div id="banner" class="banner"></div>
+            <div id="banner" class="banner">
+
+
+                <div id="card">
+                    <div id="content">
+                        <h1>Хотите в Венгрию?<br/>Туры от 17300 р</h1>
+                        <p>Школа серфинга и серфинг лагерь на Канарах.<br />За 7 дней и 5 уроков 33000 руб!</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
@@ -75,6 +140,7 @@
         <script>
             var wrapper = document.getElementById('wrapper');
             var banner = document.getElementById('banner');
+            var card = document.getElementById('card');
 
             var timeline = new anime.timeline({ autoplay: false })
                 .add({
@@ -105,8 +171,6 @@
                         } else {
                             banner.className = 'stage4';
                         }
-                        
-                        console.log(time);
                     },
                     height: [
                         { value: 400, duration: 280, delay: 120 },
@@ -115,6 +179,7 @@
                 });
 
             window.addEventListener('scroll', function() { requestAnimationFrame(updateAnimation) });
+            banner.addEventListener('click', onClick);
 
             function getPos() {
                 var pos = 400 - wrapper.getBoundingClientRect().top;
@@ -123,7 +188,28 @@
 
             function updateAnimation() {
                 var pos = getPos();
+                console.log(pos);
+
+                if (wrapper.className === 'opened') {
+                    (pos < 370 || pos > 430) && (wrapper.className = 'closed');
+                }
+
                 this.timeline.seek(pos);
+            }
+
+            function onClick() {
+                var pos = wrapper.getBoundingClientRect().top;
+                var diff = document.body.scrollTop + pos;
+
+                anime({
+                    targets: document.body,
+                    easing: 'easeInOutQuad',
+                    scrollTop: diff,
+                    duration: 300,
+                    complete: function(anim) {
+                        wrapper.className = 'opened';
+                    }
+                });
             }
 
         </script>
