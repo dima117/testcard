@@ -36,7 +36,7 @@
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
   <script>
-  Highcharts.chart('container', {
+  var xxx = Highcharts.chart('container', {
 
   title: {
     text: 'Solar Employment Growth by Sector, 2010-2016'
@@ -99,7 +99,7 @@
         var mediaQueryList = window.matchMedia('print');
       
         mediaQueryList.addListener(function (mql) {
-            $('#container').highcharts().reflow();
+            xxx.reflow();
         });
     }
 
