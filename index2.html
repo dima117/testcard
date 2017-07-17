@@ -7,6 +7,26 @@
       height: 400px;
       margin: 0 auto
     }
+    
+    
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            padding:0px;
+            margin:0px;
+            width: 210mm;
+            height: 297mm;
+        }
+        #container {
+            float:left;
+            padding: 0px;
+            margin: 0px;
+            width: 80%;
+        }
+    }
 
   </style>
 
