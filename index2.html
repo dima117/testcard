@@ -36,6 +36,23 @@
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
   <script>
+    Highcharts.setOptions({ // Apply to all charts
+        chart: {
+            events: {
+                beforePrint: function () {
+                    this.oldhasUserSize = this.hasUserSize;
+                    this.resetParams = [this.chartWidth, this.chartHeight, false];
+                    this.setSize(600, 400, false);
+                },
+                afterPrint: function () {
+                    this.setSize.apply(this, this.resetParams);
+                    this.hasUserSize = this.oldhasUserSize;
+                }
+            }
+        }
+    });
+    
+    
   var xxx = Highcharts.chart('container', {
 
   title: {
