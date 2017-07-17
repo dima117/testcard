@@ -74,6 +74,14 @@
   }]
 
 });
+    
+    if (window.matchMedia) {
+        var mediaQueryList = window.matchMedia('print');
+      
+        mediaQueryList.addListener(function (mql) {
+            $('#container').highcharts().reflow();
+        });
+    }
 
   
   </script>
