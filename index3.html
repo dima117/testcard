@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Title</title>
+        <script src="anime.min.js"></script>
+        <style>
+        .card {
+  width: 120px;
+  height: 120px;
+  background-color: #21B8B8;
+  animation: card 2s ease-in-out infinite forwards;
+  transform-origin: left top;
+  font-size: 7px;
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
+.content {
+  color: white;
+  opacity: 0;
+  animation: content 2s ease-in-out infinite forwards;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4px;
+  box-sizing: border-box;
+  background-color: #21B8B8;
+  z-index: 10;
+  opacity: 0.4;
+}
+
+.hide {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  top: 100%;
+  opacity: 1;
+  animation: hide 2s ease-in-out infinite forwards;
+  transform: translateX(-55%) translateY(-100%);
+  left: 50%;
+  color: gray;
+  font-size: 1.4em;
+  text-decoration: none;
+}
+
+h1 { font-size: 1.5em; font-weight: 100;}
+
+@keyframes card {
+  from { transform: scale(1); }   
+  25% { transform: scale(1.9); }
+  to { transform: scale(1.9); }
+}
+
+@keyframes content {
+  from { opacity: 0; }   
+  25% {opacity: 0; }
+  30% {opacity: 1; }
+  to { opacity: 1; }
+}
+
+@keyframes hide {
+  from { opacity: 0; }   
+  30% {opacity: 0; }
+  35% {opacity: 1; transform: translateX(-55%) translateY(-100%); }
+  55% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+        </style>
+    </head>
+    <body>
+    <div class="card">
+<div class="content">
+  <h1>Хотите в Венгрию?<br/>Туры от 17300 р</h1>
+  <p>Школа серфинга и серфинг лагерь на Канарах.<br />За 7 дней и 5 уроков 33000 руб!</p>
+</div>
+<a href="#" class="hide">свернуть</a>
+</div>
+
+    </body>
+</html>
