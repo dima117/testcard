@@ -50,13 +50,26 @@ div {
 
 <script>
   
-setTimeout(function() {
-alert('begin');
+// setTimeout(function() {
+// alert('begin');
 
-var end = Date.now() + 5000;
+// var end = Date.now() + 5000;
 
-while(Date.now() < end);
-alert('end');
+// while(Date.now() < end);
+// alert('end');
 
-},5000);  
+// },5000);  
+  
+  setTimeout(function() {
+    alert('begin');
+    
+    var html = '';
+    for (var i = 0; i < 5000; i++) {
+      html += '<div>' + i +'</div>';
+    }
+    
+    document.body.insertAdjacentHTML('beforeend', html);
+  
+    alert('end');
+  },5000); 
 </script>
